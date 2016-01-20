@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" ng-app="webglRocks">
 <head>
-    <meta charset="utf-8">
-    <title>Proves webgl</title>
+    <title>WebGlRocks</title>
+    <base href="/">
+    <link rel="stylesheet" href="/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-    <a href="prova1.html">The Harnao</a> <br>
-    <a href="prova2.html">Random points</a>
+    <ng-view></ng-view>
 
+    <script src="bundle.js"></script>
 </body>
