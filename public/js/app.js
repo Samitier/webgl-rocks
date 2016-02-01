@@ -10,17 +10,19 @@ var app = angular.module('webglRocks', [ 'ngRoute' ])
     $routeProvider.when('/', {
             templateUrl: 'partials/views/home.html',
             controller: 'HomeController',
-            controllerAs: 'HomeCtrl',
+            controllerAs: 'homeCtrl',
         })
-        .when('/about-me', {
-            templateUrl: 'partials/views/about-me.html',
-            controller: 'AboutMeController',
-            controllerAs: 'AboutMeCtrl',
+        .when('/post/:id', {
+            templateUrl: 'partials/views/post.html',
+            controller: 'PostController',
+            controllerAs: 'postCtrl',
         })
-        .when('/random-points', {
-            templateUrl: 'partials/views/random-points.html',
-            controller: 'RandomPointsController',
-            controllerAs: 'RandomPointsCtrl',
+        .when('/:id', {
+            templateUrl: function(urlattr){
+                return 'partials/views/' + urlattr.id + '.html';
+            },
+            controller: 'PageController',
+            controllerAs: 'pageCtrl',
         })
         .otherwise({
             redirectTo: '/',
@@ -33,6 +35,5 @@ var app = angular.module('webglRocks', [ 'ngRoute' ])
 require('./services');
 require('./controllers');
 require('./directives');
-require('pixi.js');
 
 

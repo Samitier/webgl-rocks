@@ -1,6 +1,6 @@
 require('angular').module('webglRocks')
-/*
-    .controller('HomeController', require('./HomeController'))
-    .controller('AboutMeController', require('./AboutMeController'))*/;
+
+    .factory("BlogAPI",require('./BlogAPI'));
+
 
 
