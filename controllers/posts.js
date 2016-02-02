@@ -2,22 +2,22 @@ var db = require ('../database');
 
 var postKey = "posts" || process.env.postkey;
 
-module.exports.getAll = function() {
+module.exports.getAll = function(req,res,next) {
 
 }
 
 module.exports.getDetail = function(req,res) {
-    res.json({slug:home, name:"Home"});
-}
-
-module.exports.edit = function() {
 
 }
 
-module.exports.create = function() {
+module.exports.edit = function(req,res,next) {
 
 }
 
-module.exports.delete = function() {
+module.exports.create = function(req,res,next) {
+
+}
+
+module.exports.delete = function(req,res,next) {
 
 }

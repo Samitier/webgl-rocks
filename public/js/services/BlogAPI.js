@@ -5,9 +5,7 @@ module.exports = function($http) {
     var apiURI = "/api/";
 
     service.getPage = function(id) {
-        return $http.get(apiURI + "pages/" + id).then(function(resp) {
-            return resp.data;
-        }, errorHandler);
+        return $http.get(apiURI + "pages/" + id);
     };
 
     service.getPost = function(id) {
@@ -17,6 +15,7 @@ module.exports = function($http) {
     };
 
     function errorHandler(err) {
+        return false;
     }
 
     return service;

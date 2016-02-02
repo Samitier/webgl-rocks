@@ -2,7 +2,8 @@ require('angular').module('webglRocks')
 
     .controller('HomeController', require('./HomeController'))
     .controller('PageController', require('./PageController'))
-    .controller('PostController', require('./PostController'));
+    .controller('PostController', require('./PostController'))
+    .controller('AdminController', require('./AdminController'));
 
 
 
