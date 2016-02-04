@@ -1,7 +1,5 @@
 var db = require ('../database');
 
-var pageKey = "pages" || process.env.pagekey;
-
 /*
  Redis implementation: we will store the pages as a simple stringified JSON object, with the key page:id
  since we'll want to be able to get all the pages, we'll have to
@@ -51,7 +49,7 @@ module.exports.create = function(req,res,next) {
                 if(err) return next(err);
                 else {
                     var archive = makeArchive(page);
-                    db.zadd("page-archive", post.postedAt.getTime(), JSON.stringify(archive), function(err, dat) {
+                    db.zadd("page-archive", page.postedAt.getTime(), JSON.stringify(archive), function(err, dat) {
                         if(err) return next(err);
                         else res.json({success: "The page has been created."});
                     })
@@ -79,8 +77,8 @@ module.exports.delete = function(req,res,next) {
  Adds date fields
  */
 var makePage = function(pageData) {
-    postedAt = (pageData.postedAt || new Date());
-    updatedAt = new Date();
+    pageData.postedAt = (pageData.postedAt || new Date());
+    pageData.updatedAt = new Date();
     return pageData;
 };
 

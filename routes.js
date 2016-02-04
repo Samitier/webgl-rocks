@@ -31,6 +31,11 @@ router.route('/posts/:id')
     .delete(ctrl.auth.authenticate, ctrl.posts.delete)
     .put(ctrl.auth.authenticate, ctrl.posts.edit);
 
+/*WEB DETAILS*/
+router.route('web-details')
+    .get(ctrl.webdetails.get)
+    .post(ctrl.webdetails.set)
+
 
 router.all('*', function(req, res) {res.status(404).send({ error: {"code":"404", "name":'Resource not found'}});});
 

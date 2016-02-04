@@ -60,6 +60,8 @@ var app = angular.module('webglRocks', ['ngRoute'])
 
     })
     .run(function ($rootScope, $location) {
+        $rootScope.pageTitle = "";
+        $rootScope.pageDescription = "";
         $rootScope.$on('$routeChangeError', function (event, current, previous, error) {
             if (error.status === 404) {
                 $location.path('/404');

@@ -1,7 +1,5 @@
 var db = require ('../database');
 
-var postKey = "posts" || process.env.postkey;
-
 /*
     Redis implementation: we will store the posts as a simple stringified JSON object, with the key posts:id
     since we'll want to have the posts ordered by date at all times, we'll have to
