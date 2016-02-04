@@ -20,14 +20,29 @@ var app = angular.module('webglRocks', ['ngRoute'])
             .when('/404', {
                 templateUrl: 'partials/views/404.html'
             })
+            .when('/posts/', {
+                templateUrl: 'partials/views/archive.html',
+                controller: 'ArchiveController',
+                controllerAs: 'archiveCtrl',
+                resolve: {
+                    pageContents: ['BlogAPI', function(BlogAPI) {
+                        return BlogAPI.getPostArchive();
+                    }]
+                }
+            })
             .when('/post/:id', {
                 templateUrl: 'partials/views/post.html',
                 controller: 'PostController',
                 controllerAs: 'postCtrl',
+                resolve: {
+                    pageContents: ['$route', 'BlogAPI', function($route, BlogAPI) {
+                        return BlogAPI.getPost($route.current.params.id);
+                    }]
+                }
             })
             .when('/:id', {
                 templateUrl: function (urlattr) {
-                    return 'partials/views/' + urlattr.id + '.html';
+                    return 'partials/views/pages/' + urlattr.id + '.html';
                 },
                 controller: 'PageController',
                 controllerAs: 'pageCtrl',

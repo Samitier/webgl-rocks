@@ -76,20 +76,12 @@ module.exports.delete = function(req,res,next) {
 }
 
 /*
- Cleans user input and add a few fields
+ Adds date fields
  */
 var makePage = function(pageData) {
-    return {
-        id : pageData.id,
-        title: pageData.title,
-        excerpt: pageData.excerpt,
-        thumbnail: pageData.thumbnail,
-        postedAt: (pageData.postedAt || new Date()),
-        updatedAt: new Date(),
-        category: pageData.category,
-        tags: pageData.tags,
-        content: pageData.content
-    }
+    postedAt = (pageData.postedAt || new Date());
+    updatedAt = new Date();
+    return pageData;
 };
 
 /*
@@ -99,8 +91,6 @@ var makeArchive = function(pageData) {
     return {
         id: pageData.id,
         title: pageData.title,
-        excerpt: pageData.subtitle,
-        thumbnail: pageData.thumbnail,
         postedAt: pageData.postedAt
     }
 };
@@ -109,7 +99,7 @@ var makeArchive = function(pageData) {
  Checks if the archive needs to be changed after an update
  */
 var needsArchiveUpdate = function(old, created) {
-    return (old.title != created.title || old.excerpt != created.excerpt
-    || old.thumbnail != created.thumbnail || old.postedAt != created.postedAt
+    return (old.title != created.title
+    || old.postedAt != created.postedAt
     || old.id != created.id);
 }

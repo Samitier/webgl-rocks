@@ -8,10 +8,12 @@ module.exports = function($http) {
         return $http.get(apiURI + "pages/" + id);
     };
 
+    service.getPostArchive = function() {
+        return $http.get(apiURI + "posts/");
+    };
+
     service.getPost = function(id) {
-        return $http.get(apiURI + "posts/" + id).then(function(resp) {
-            return resp.data;
-        }, errorHandler);
+        return $http.get(apiURI + "posts/" + id);
     };
 
     function errorHandler(err) {
