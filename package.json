@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "preinstall": "npm install -g browserify; npm install -g uglifyjs;",
-    "postinstall": "browserify public/js/app.js | uglifyjs -o public/bundle.js",
-    "start": "node ./bin/www"
+    "postinstall": "cd ./client && npm install && npm run build && cd ..",
+    "start": "cd client && npm run build && cd .. && node ./bin/www"
   },
   "dependencies": {
     "angular": "^1.4.8",

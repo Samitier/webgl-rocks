@@ -76,3 +76,6 @@ $RECYCLE.BIN/
 
 .idea
 bundle.js
+client/node_modules
+npm-debug.log
+client/typings
