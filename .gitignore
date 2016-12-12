@@ -75,3 +75,7 @@ $RECYCLE.BIN/
 *.lnk
 
 .idea
+
+.bundle.js
+.bundle.css
+public/index.html

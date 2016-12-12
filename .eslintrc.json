@@ -1,0 +1,38 @@
+{
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "rules": {
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "func-style": [
+            "error",
+            "expression"
+        ],
+        "valid-typeof":2,
+        "no-unreachable": 2,
+        "no-dupe-args": 2,
+        "no-dupe-keys": 2,
+        "no-sparse-arrays":2,
+        "no-func-assign": 2,
+        "no-redeclare": 2,
+        "no-self-assign":2,
+		"no-unexpected-multiline": 2,
+		"no-console": 0,
+		"no-var": 2,
+        "no-undef": 2,
+        "no-unused-vars": 1
+    }
+}

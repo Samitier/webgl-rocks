@@ -1,17 +1,43 @@
 {
-  "name": "provawebgl",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "postinstall": "mkdir -p ./public/node_modules; npm install public --prefix ./public;",
-    "start": "node ./bin/www"
-  },
-  "dependencies": {
-    "body-parser": "~1.13.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
-    "express": "~4.13.1",
-    "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
-  }
+    "name": "webgl-rocks",
+    "description": "Some webGL experiments",
+    "version": "0.0.1",
+    "author": "Blai Samitier",
+    "private": true,
+    "scripts": {
+        "prestart": "webpack",
+	    "start": "node ./server/main.js",
+        "dev": "webpack-dev-server --inline --hot --history-api-fallback"
+    },
+    "dependencies": {
+        "axios": "^0.15.2",
+        "stats.js": "^0.16.0",
+        "three": "^0.81.2",
+        "vue": "^2.0.0-beta.1",
+		"body-parser": "~1.13.2",
+        "compression": "^1.6.1",
+		"cookie-parser": "~1.3.5",
+		"debug": "~2.2.0",
+		"express": "~4.13.1",
+		"morgan": "~1.6.1",
+		"serve-favicon": "~2.3.0"
+    },
+    "devDependencies": {
+        "babel": "^6.5.2",
+        "babel-core": "^6.17.0",
+        "babel-loader": "^6.2.5",
+        "babel-preset-es2015": "^6.16.0",
+        "cross-env": "^1.0.6",
+        "css-loader": "0.14.5",
+        "extract-text-webpack-plugin": "^1.0.1",
+        "file-loader": "^0.8.4",
+        "style-loader": "^0.13.1",
+        "html-webpack-plugin": "^2.24.1",
+        "vue-loader": "^9.0.0",
+        "webpack": "^1.13.2"
+    },
+    "engines": {
+        "node": "^6.0.0",
+        "npm": "^3.0.0"
+    }
 }
