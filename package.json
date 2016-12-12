@@ -5,8 +5,8 @@
     "author": "Blai Samitier",
     "private": true,
     "scripts": {
-        "prestart": "npm i -g webpack && webpack",
-	    "start": "webpack && node ./server/main.js",
+        "postinstall": "npm i -g webpack && webpack",
+	    "start": "node ./server/main.js",
         "dev": "webpack-dev-server --inline --hot --history-api-fallback"
     },
     "dependencies": {
