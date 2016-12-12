@@ -5,7 +5,7 @@
     "author": "Blai Samitier",
     "private": true,
     "scripts": {
-        "postinstall": "npm i -g webpack && webpack",
+        "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
 	    "start": "node ./server/main.js",
         "dev": "webpack-dev-server --inline --hot --history-api-fallback"
     },
